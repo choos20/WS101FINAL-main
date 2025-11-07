@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="../ALL_CSS/contact.css" />
+  <title>Contact</title>
+</head>
+<body>
+
+  <div class="contact-section">
+    <h2>Contact Me</h2>
+
+    <div class="contact-icons">
+      <a href="https://www.facebook.com/share/1G1zxfemia/" target="_blank" class="contact-link" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
+      <a href="https://vm.tiktok.com/ZShNN64bb/" target="_blank" class="contact-link" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+      <a href="mailto:napinasritchiebob@gmail.com" class="contact-link" aria-label="Email">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+      <a href="tel:+639947160655" class="contact-link" aria-label="Phone">
+        <i class="fas fa-phone"></i> Phone
+      </a>
+      <a href="https://github.com/choos20" target="_blank" class="contact-link" aria-label="GitHub">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+
+    <div class="contact-message">
+      <h3>Feel Free To Reachout</h3>
+      <form class="contact-form" id="contactForm" action="index.php" method="POST">
+        <label for="help">How can I help you?</label>
+        <textarea id="help" name="help" rows="4" required></textarea>
+      
+        <label for="name">First Name</label>
+        <input type="text" id="name" name="name" required>
+      
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" required>
+      
+        <label for="number">Number</label>
+        <input type="tel" id="number" name="number" required pattern="^\+?[0-9]+$" title="Only numbers and + sign allowed.">
+      
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" required>
+      
+        <button type="submit">Submit</button>
+      </form>
+      
+      <div id="thankYouMessage" style="display: none; text-align: center; margin-top: 20px;">
+        <h3>Thank you for reaching out! Your message has been received.</h3>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault(); 
+
+      const name = document.getElementById("name").value.trim();
+      const lastname = document.getElementById("lastname").value.trim();
+      const number = document.getElementById("number").value.trim();
+
+      const namePattern = /^[\p{L}\s'-]+$/u;
+      const numberPattern = /^\+?[0-9]+$/;
+
+      if (!namePattern.test(name)) {
+        alert("First name can only contain letters, spaces, hyphens, or apostrophes.");
+      } else if (!namePattern.test(lastname)) {
+        alert("Last name can only contain letters, spaces, hyphens, or apostrophes.");
+      } else if (!numberPattern.test(number)) {
+        alert("Phone number can only contain digits and an optional '+' at the beginning.");
+      } else {
+       
+        document.getElementById("thankYouMessage").style.display = "block";
+        document.getElementById("contactForm").reset(); 
+      }
+    });
+  </script>
+
+</body>
+</html>
+<!-- Back Button -->
+<a href="new.html" id="back-button" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgb(50, 255, 120);
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(50, 255, 120, 0.7);
+  transition: all 0.3s ease;
+">
+  ← Back
+</a>
+<script>
+  const backBtn = document.getElementById('back-button');
+  backBtn.addEventListener('mouseenter', () => {
+    backBtn.style.backgroundColor = 'rgb(227, 76, 175)';
+    backBtn.style.color = 'white';
+  });
+  backBtn.addEventListener('mouseleave', () => {
+    backBtn.style.backgroundColor = 'rgb(50, 255, 120)';
+    backBtn.style.color = 'black';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Favorite Anime</title>
+   <link rel="stylesheet" href="../ALL_CSS/Favorites.css" />
+</head>
+<body>
+
+  <h1>My Top Adventure Anime</h1>
+
+  <div class="anime-grid">
+    <img src="https://upload.wikimedia.org/wikipedia/en/9/94/NarutoCoverTankobon1.jpg" alt="Naruto">
+    <img src="../images/mag.jpg" alt="Magi">
+    <img src="../images/op.jpg" alt="One Piece">
+
+    <img src="../images/dm.jpg" alt="Demon Slayer">
+    <img src="../images/HXH.jpg" alt="Hunter x Hunter">
+    <img src="https://upload.wikimedia.org/wikipedia/en/7/72/Bleachanime.png" alt="Bleach">
+  </div>
+  <h1>My Top Music Artists</h1>
+
+  <div class="anime-grid">
+
+    <img src="../images/ap.jpeg" alt="Naruto">
+    <img src="../images/appss.jpeg" alt="Magi">
+    <img src="../images/apss.jpg" alt="One Piece">
+
+    <img src="../images/wins.jpg" alt="Demon Slayer">
+    <img src="../images/xb.jpeg" alt="Hunter x Hunter">
+    <img src="../images/nops.jpg" alt="Bleach">
+  </div>
+  <h1>My Top Sports</h1>
+
+  <div class="anime-grid">
+    <img src="../images/chess.jpeg" alt="Naruto">
+    <img src="../images/bas.jpg" alt="Magi">
+    <img src="../images/volley.jpeg" alt="One Piece">
+
+    <img src="../images/arn.jpeg" alt="Demon Slayer">
+    <img src="../images/bad.webp" alt="Hunter x Hunter">
+    <img src="../images/pingpong.jpeg" alt="Bleach">
+  </div>
+</body>
+</html>
+<!-- Back Button -->
+<a href="new.html" id="back-button" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgb(50, 255, 120);
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(50, 255, 120, 0.7);
+  transition: all 0.3s ease;
+">
+  ← Back
+</a>
+<script>
+  const backBtn = document.getElementById('back-button');
+  backBtn.addEventListener('mouseenter', () => {
+    backBtn.style.backgroundColor = 'rgb(227, 76, 175)';
+    backBtn.style.color = 'white';
+  });
+  backBtn.addEventListener('mouseleave', () => {
+    backBtn.style.backgroundColor = 'rgb(50, 255, 120)';
+    backBtn.style.color = 'black';
+  });
+</script>
+</body>
+</html>

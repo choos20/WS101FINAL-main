@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Past Projects</title>
+  <link rel="stylesheet" href="../ALL_CSS/projects.css" />
+</head>
+<body>
+
+  <header>
+    <h1>My Past Projects</h1>
+  </header>
+
+  <main>
+    <section class="anime-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <img src="../images/SKCONNECT.png" alt="SKCONNECT">
+        <h2>SkConnect</h2>
+        <p>
+          A digital platform designed to promote transparency among SK (Sangguniang Kabataan) officials by showcasing events,
+          budgets, and members. It helps future administrations learn from past mistakes and improve activities.
+        </p>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <img src="../images/Alertify.png" alt="Alertify">
+        <h2>Alertify</h2>
+        <p>
+          Alertify uses AI-powered facial, audio, and behavioral analysis to monitor participants’ alertness, engagement, and focus
+          during virtual meetings. It provides real-time feedback and post-meeting analytics to boost productivity.
+        </p>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <img src="../images/MoodBot.png" alt="MoodBot">
+        <h2>MoodBot</h2>
+        <p>
+          A web-based AI chatbot that detects a user's emotional state through text or voice and responds with personalized quotes,
+          affirmations, or advice tailored to their mood.
+        </p>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <img src="../images/EGGLINK.png" alt="EGGLINK">
+        <h2>EggLink</h2>
+        <p>
+        EggLink is a digital marketplace platform that helps farmers, distributors, and buyers across the country connect, sell,
+         and buy agricultural products, focusing primarily on egg-based goods (chicken eggs, duck eggs, quail eggs, etc.) and 
+         gradually expanding to related poultry or agricultural products.
+        </p>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <img src="../images/cisco.png" alt="Cisco Project">
+        <h2>Cisco Network Design</h2>
+        <p>
+          A network design and implementation proposal for Barangay Union, Ubay, Bohol. The goal is to digitalize and modernize
+          data management while addressing connectivity challenges.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back Button -->
+  <a href="new.html" id="back-button">← Back</a>
+
+  <!-- JS for Modal -->
+  <script>
+    const cards = document.querySelectorAll(".project-card");
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img src="" alt="Project Image">
+        <h2>Project Title</h2>
+        <p>Project Description</p>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector("img");
+    const modalTitle = modal.querySelector("h2");
+    const modalText = modal.querySelector("p");
+    const closeBtn = modal.querySelector(".close-btn");
+
+    cards.forEach(card => {
+      const img = card.querySelector("img");
+      const title = card.querySelector("h2");
+      const desc = card.querySelector("p");
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+        modalTitle.textContent = title.textContent;
+        modalText.textContent = desc.textContent;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => (modal.style.display = "none"));
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
+
+    // Back button hover
+    const backBtn = document.getElementById('back-button');
+    backBtn.addEventListener('mouseenter', () => {
+      backBtn.style.backgroundColor = 'rgb(227, 76, 175)';
+      backBtn.style.color = 'white';
+    });
+    backBtn.addEventListener('mouseleave', () => {
+      backBtn.style.backgroundColor = 'rgb(50, 255, 120)';
+      backBtn.style.color = 'black';
+    });
+  </script>
+</body>
+</html>

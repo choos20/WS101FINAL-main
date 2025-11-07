@@ -1,0 +1,135 @@
+/* ==== Body & Background ==== */
+body {
+  background: linear-gradient(-45deg, #1a1a1a, #41456c, #4a4e69, #02635a);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  font-family: 'Times New Roman', serif;
+  color: white;
+  margin: 0;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: radial-gradient(circle at top left, #ff0080, transparent 60%),
+              radial-gradient(circle at bottom right, #00ffff, transparent 60%);
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  animation: floatBackground 10s ease-in-out infinite alternate;
+  filter: blur(40px);
+}
+
+body::after {
+  background: radial-gradient(circle at center, #8a2be2, transparent 60%),
+              radial-gradient(circle at top right, #ff4500, transparent 60%);
+  z-index: -2;
+  opacity: 0.3;
+  animation-delay: 2s;
+}
+
+@keyframes floatBackground {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.profile-image {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 5px rgb(50, 255, 120), inset 0 0 10px 5px rgba(3, 156, 131, 0.8);
+  transition: all 0.5s ease-in-out;
+  margin-top: 30px;
+}
+
+h2 {
+  font-size: 36px;
+  color: #ff9900;
+  text-shadow: 0 0 10px #ff9900, 0 0 15px #ff9900;
+  margin-bottom: 20px;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: rgba(26, 26, 26, 0.7); 
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+ul li {
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  position: relative;
+}
+ul li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  font-size: 24px;
+  color: #32cd32;
+  top: 0;
+  transform: translateY(4px);
+}
+
+.academic-excellence-section,
+.Education-section,
+.leadership-experience-section,
+.seminars-events-section,
+.achievements-awards-section {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .profile-image {
+    margin-left: 0;
+    width: 200px;
+    height: 200px;
+  }
+
+  ul li {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+}

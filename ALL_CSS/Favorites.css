@@ -1,0 +1,63 @@
+/* ==== Body & Background ==== */
+body {
+  background: linear-gradient(-45deg, #1a1a1a, #41456c, #4a4e69, #02635a);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  font-family: 'Times New Roman', serif;
+  color: white;
+  margin: 0;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+  /* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+  h1 {
+    color: #ff9900;
+    text-shadow: 0 0 10px #ff9900;
+    margin-bottom: 40px;
+  }
+  
+  .anime-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; 
+  }
+  
+  .anime-grid img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #32cd32;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .anime-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff9900;
+  }
+
+  @media screen and (max-width: 768px) {
+    .anime-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .anime-grid img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  

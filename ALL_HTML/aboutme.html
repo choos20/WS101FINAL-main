@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../ALL_CSS/aboutme.css">
+  <title>About Me</title>
+</head>
+<body>
+  <div class="about-me-section" id="aboutSection">
+    <h2>About Me</h2>
+
+    <div class="about-me-content">
+      <div class="text">
+        <p>
+          Hi, I am Ritchie Bob B. Napiñas. I am from P-5 Union, Ubay, Bohol. I am the eldest son of Mr. and Ms. Cheril and Reneboy Napiñas.
+        </p>
+        <p>
+          I love playing chess because it challenges my mind and helps improve my critical thinking skills.
+          Every move requires strategy and foresight, and I enjoy the feeling of outsmarting my opponent.
+          Chess also offers endless opportunities for learning and growth, with every game providing new insights and lessons.
+          It’s a game of patience and precision, which makes each victory even more satisfying.
+          Overall, playing chess is both a fun and rewarding way to stimulate my brain.
+          Chess is like a real battle in real life—whether you want that decision or not, you're obliged to do so and keep moving.
+        </p>
+      </div>
+
+      <div class="image-container">
+        <img src="../images/face.png" alt="Magi">
+        <button class="reveal-button" onclick="toggleVideo()">Click Me</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen video overlay -->
+  <div id="videoOverlay" class="video-overlay">
+  <video id="chessVideo" controls>
+    <source src="../images/chess1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p class="video-caption">This is me playing chess.</p>
+</div>
+
+
+  <!-- Back Button -->
+  <a href="new.html" id="back-button" style="
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgb(50, 255, 120);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(50, 255, 120, 0.7);
+    transition: all 0.3s ease;
+  ">
+    ← Back
+  </a>
+
+  <script>
+    function toggleVideo() {
+      const aboutSection = document.getElementById("aboutSection");
+      const overlay = document.getElementById("videoOverlay");
+      const video = document.getElementById("chessVideo");
+
+      if (overlay.style.display === "flex") {
+        // Hide video and show about section again
+        overlay.style.display = "none";
+        aboutSection.style.display = "block";
+        video.pause();
+      } else {
+        // Show video overlay and hide about content
+        overlay.style.display = "flex";
+        aboutSection.style.display = "none";
+        video.play();
+      }
+    }
+
+    // Back button hover animation
+    const backBtn = document.getElementById('back-button');
+    backBtn.addEventListener('mouseenter', () => {
+      backBtn.style.backgroundColor = 'rgb(227, 76, 175)';
+      backBtn.style.color = 'white';
+    });
+    backBtn.addEventListener('mouseleave', () => {
+      backBtn.style.backgroundColor = 'rgb(50, 255, 120)';
+      backBtn.style.color = 'black';
+    });
+  </script>
+</body>

@@ -1,0 +1,169 @@
+/* ==== Body & Background ==== */
+body {
+  background: linear-gradient(-45deg, #1a1a1a, #41456c, #4a4e69, #02635a);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  font-family: 'Times New Roman', serif;
+  color: white;
+  margin: 0;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==== Title ==== */
+h1 {
+  font-size: 2.8rem;
+  margin: 40px 0;
+  color: #00ff9d;
+  text-shadow: 0 0 20px rgba(0, 255, 120, 0.6);
+  letter-spacing: 2px;
+}
+
+/* ==== Project Grid ==== */
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  padding: 40px;
+}
+
+/* ==== Individual Project Cards ==== */
+.project-card {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(0, 255, 120, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float 4s ease-in-out infinite;
+}
+
+.project-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px rgba(0, 255, 120, 0.5);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Image Styling */
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(50, 255, 120, 0.4);
+  transition: all 0.4s ease;
+}
+
+.project-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Text Below Image */
+.project-card h2 {
+  font-size: 1.4rem;
+  color: #00ff9d;
+  margin: 15px 0 10px;
+  text-shadow: 0 0 10px rgba(0, 255, 120, 0.4);
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+/* ==== Modal ==== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: #111;
+  color: #eee;
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 30px rgba(50, 255, 120, 0.4);
+  position: relative;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-content h2 {
+  color: #00ff9d;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  text-align: justify;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #00ff9d;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ff69b4;
+}
+
+/* ==== Back Button ==== */
+#back-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgb(50, 255, 120);
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(50, 255, 120, 0.7);
+  transition: all 0.3s ease;
+}

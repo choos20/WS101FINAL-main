@@ -1,0 +1,262 @@
+/* ==== Body & Background ==== */
+body {
+  background: linear-gradient(-45deg, #1a1a1a, #41456c, #4a4e69, #02635a);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  font-family: 'Times New Roman', serif;
+  color: #fff;
+  margin: 0;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+/* Smooth animated gradient background */
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Soft glowing background blobs */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: radial-gradient(circle at top left, #ff0080, transparent 60%),
+              radial-gradient(circle at bottom right, #00ffff, transparent 60%);
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  animation: floatBackground 10s ease-in-out infinite alternate;
+  filter: blur(60px);
+}
+
+body::after {
+  background: radial-gradient(circle at center, #8a2be2, transparent 60%),
+              radial-gradient(circle at top right, #ff4500, transparent 60%);
+  opacity: 0.3;
+  animation-delay: 2s;
+}
+
+@keyframes floatBackground {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(20px, -20px) scale(1.05); }
+}
+
+/* ==== Section Styling ==== */
+.about-me-section {
+  text-align: center;
+  margin-top: 80px;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-me-section h2 {
+  font-size: 42px;
+  color: #ffb347;
+  text-shadow: 0 0 10px #ff9900, 0 0 25px #ff9900;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  animation: fadeInDown 1s ease both;
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==== Main Content ==== */
+.about-me-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(20, 20, 20, 0.75);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 120, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-me-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(255, 165, 0, 0.3);
+}
+
+/* ==== Text Styling ==== */
+.text {
+  flex: 1;
+  min-width: 280px;
+  animation: fadeInLeft 1.5s ease both;
+}
+
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.about-me-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #eee;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* ==== Image Box ==== */
+.image-container {
+  flex: 0 0 250px;
+  text-align: center;
+  animation: fadeInRight 1.5s ease both;
+  perspective: 1000px;
+}
+
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.image-container img {
+  width: 100%;
+  border-radius: 12px;
+  transform: rotateY(10deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-container img:hover {
+  transform: rotateY(0deg) scale(1.05);
+  box-shadow: 0 0 25px #00e699;
+}
+
+/* ==== Button Styling ==== */
+.reveal-button {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #ff9900, #ff6600);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.reveal-button:hover {
+  background: linear-gradient(90deg, #00e699, #00bfa5);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px #00e699;
+}
+
+.reveal-button:active {
+  transform: translateY(2px);
+}
+
+/* ==== Hidden Message ==== */
+#typeMessage {
+  color: #ffb347;
+  text-shadow: 0 0 10px #ffb347, 0 0 20px #ffb347;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#typeMessage.show {
+  opacity: 1;
+}
+
+/* ==== Responsive Design ==== */
+@media screen and (max-width: 768px) {
+  .about-me-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text {
+    text-align: justify;
+  }
+
+  .image-container {
+    margin-top: 20px;
+  }
+}
+/* === Video Overlay === */
+.video-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.video-overlay video {
+  width: 70%;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 255, 150, 0.5);
+  transition: transform 0.5s ease;
+}
+
+.video-overlay video:hover {
+  transform: scale(1.03);
+}
+
+.video-caption {
+  margin-top: 20px;
+  color: #ff9900;
+  font-weight: bold;
+  text-shadow: 0 0 15px #ff9900;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+#back-button {
+  z-index: 1000; /* Make sure it stays above the video overlay */
+}
+.close-video {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #00e699;
+  color: black;
+  font-weight: bold;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 120, 0.8);
+  transition: all 0.3s ease;
+}
+
+.close-video:hover {
+  background: #e34caf;
+  color: white;
+  box-shadow: 0 0 15px rgba(227, 76, 175, 0.8);
+}
